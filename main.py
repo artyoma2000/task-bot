@@ -16,5 +16,6 @@ async def main():
     register_handlers(dp, db_pool)
     await dp.start_polling(bot)
 
+
 if __name__ == "__main__":
     asyncio.run(main())
