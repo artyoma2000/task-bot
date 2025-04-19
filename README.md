@@ -26,7 +26,10 @@ This is a Telegram bot designed to help you manage your tasks efficiently. The b
     cd <repository-folder>
     ```
 
-2. Modify the `config.ini` file to meet your requirements
+2. Install the required packages.
+    ```pip install -r requirements.txt```
+
+3. Modify the `config.ini` file to meet your requirements
     ```[database]
     user = postgres
     password = Passlogin1.
@@ -35,14 +38,14 @@ This is a Telegram bot designed to help you manage your tasks efficiently. The b
     port = 5432
     ```
 
-3. Edit the `compose.yaml` file to correspond the PostgreSQL settings to ones outlined in the bot configuration.
+4. Edit the `compose.yaml` file to correspond the PostgreSQL settings to ones outlined in the bot configuration.
 
-4. Start the application using Docker Compose:
+5. Start the application using Docker Compose:
     ```bash
     docker-compose up --build
     ```
 
-5. The bot will now be running and connected to your Telegram account.
+6. The bot will now be running and connected to your Telegram account.
 
 ## Project Structure
 
