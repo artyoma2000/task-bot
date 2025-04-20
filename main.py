@@ -101,10 +101,10 @@ async def main():
 
 async def init_db():
     conn = await asyncpg.connect(**DB_CONFIG)
-    print("✅ Подключение к БД успешно.")
+    print("Подключение к БД успешно.")
 
     if DROP_TABLES:
-        print("⚠️ Удаление существующих таблиц...")
+        print("Удаление существующих таблиц...")
         await conn.execute(DROP_SQL)
 
     result = await conn.fetch(TABLE_CHECK_SQL)
@@ -112,11 +112,11 @@ async def init_db():
 
     expected_tables = {'users', 'tasks', 'time_entries', 'comments'}
     if expected_tables.issubset(existing_tables):
-        print("✅ Все таблицы уже существуют.")
+        print("Все таблицы уже существуют.")
     else:
-        print("📦 Создание недостающих таблиц...")
+        print("Создание недостающих таблиц...")
         await conn.execute(CREATE_SQL)
-        print("✅ Таблицы успешно созданы.")
+        print("Таблицы успешно созданы.")
 
     await conn.close()
 if __name__ == "__main__":
