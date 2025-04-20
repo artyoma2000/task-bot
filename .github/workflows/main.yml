@@ -41,9 +41,11 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/task-bot-srv:latest
 
             # Останавливаем и удаляем старый контейнер, если он существует
-            docker stop task-bot-srv-container || true
-            docker rm task-bot-srv-container || true
+            docker stop task-bot-srv || true
+            docker rm task-bot-srv || true
 
             # Запускаем новый контейнер с образом из Docker Hub
-            docker run -d --name task-bot-srv-container -p 8081:8081 ${{ secrets.DOCKER_USERNAME }}/task-bot-srv:latest
+            docker run -d --name task-bot-srv -p 8081:8081 ${{ secrets.DOCKER_USERNAME }}/task-bot-srv:latest
+            echo "Docker Restart"
+            docker start task-bot-srv
           EOF
