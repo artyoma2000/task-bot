@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    if: github.event.head_commit.author.name != 'github-actions[bot]' && github.event.check_suite.conclusion == 'success'
+    if: github.event.head_commit.author.name != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     steps:
