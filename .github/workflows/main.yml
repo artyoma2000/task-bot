@@ -26,6 +26,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}  # Логин Docker Hub
           password: ${{ secrets.DOCKER_PASSWORD }}  # Пароль Docker Hub
 
+      - name: Replace token in ini file
+        run: |
+          sed -i "s|^token = .*|token = ${{ secrets.TELEGRAM_BOT_TOKEN }}|" config.ini 
+
       - name: Docker Build Container
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/task-bot-srv:latest .
