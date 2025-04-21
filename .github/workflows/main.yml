@@ -30,6 +30,14 @@ jobs:
         run: |
           sed -i "s|^token = .*|token = ${{ secrets.TELEGRAM_BOT_TOKEN }}|" config.ini 
 
+      - name: Replace DB password in ini file
+        run: |
+          sed -i "s|^password = .*|password = ${{ secrets.DB_PASSWORD }}|" config.ini 
+
+      - name: Replace DB password in ini file
+        run: |
+          sed -i "s|^host = .*|host = ${{ secrets.DB_IP }}|" config.ini
+
       - name: Docker Build Container
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/task-bot-srv:latest .
